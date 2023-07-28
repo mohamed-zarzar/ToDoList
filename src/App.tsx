@@ -9,10 +9,10 @@ import { changeMode } from "./rtk/features/modeSlice";
 function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const data = JSON.parse(window.localStorage.getItem("tasks") || "");
-    if (data) {
+    try {
+      const data = JSON.parse(window.localStorage.getItem("tasks") || "");
       dispatch(getTasksFromLocalstorage(data));
-    }
+    } catch {}
   },[])
   const mode = useAppSelector((state) => state.mode);
   const allTasks = useAppSelector((state) => state.tasks);

@@ -15,7 +15,7 @@ const tasksSlice = createSlice({
             return action.payload;
         },
         addTask: (state, action: PayloadAction<TaskType>) => {
-            window.localStorage.setItem("tasks",JSON.stringify(state));
+            window.localStorage.setItem("tasks",JSON.stringify([...state,action.payload]));
             state.push(action.payload);
         },
         ChangeTaskStatus: (state, action: PayloadAction<number>) => {
