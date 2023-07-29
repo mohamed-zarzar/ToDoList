@@ -23,7 +23,9 @@ const Task = ({title,completed,id}:TaskType) => {
                 <button className={`flex justify-center items-center text-xs text-white w-4 h-4 mx-2 rounded-full ${isCompleted ? "bg-gradient-to-r from-violet-500 to-fuchsia-500" : "border-solid"} ${mode.name === "light" ? "border-gray-300" : "border-gray-700"}`}
                 style={{borderWidth:"1px"}}
                 onClick={handelClickIsCompleted}>{isCompleted ? "✓" : ""}</button>
-                <div style={{color:`${isCompleted ? "gray" : mode.textColor}`,opacity:`${isCompleted ? "0.4" : ""}`}} className='text-sm' >
+                <div style={
+                    isCompleted?{color:"gray",opacity:"0.4",textDecoration: 'line-through'}:
+                    {color: mode.textColor}} className='text-sm' >
                     {title}
                 </div>
             </div>
