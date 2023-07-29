@@ -61,7 +61,7 @@ function App() {
           onChange={(e)=>handelChange(e.target.value)}/>
           <button onClick={handelClickAdd}  className={`ml-auto hover:scale-125 ${mode.name === "light" ? "text-black" : "text-gray-500"}`} >+</button>
         </div>
-        <div className="w-64 flex flex-col my-4 shadow-2xl rounded-md overflow-hidden" 
+        <div className="w-64 md:w-80 flex flex-col my-4 shadow-2xl rounded-md overflow-hidden" 
         style={{backgroundColor:`${mode.taskBackgroundColor}`}}>
           {allTasks.map((task) => {
             if(taskShowStatus === "all") {
@@ -82,7 +82,7 @@ function App() {
               );
             }
           })}
-          <div className='h-10 w-64 flex justify-evenly items-center'
+          <div className='h-10 flex justify-evenly items-center w-full'
           style={{fontSize:"8px"}}>
             <div className='text-gray-500'>{allTasks.length - comletedTaskLength} item left</div>
             <div className='flex text-gray-500'>
